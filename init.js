@@ -100,7 +100,7 @@ var singleModule = (function(){
             }
         }
         else{
-            spawnPoolWorkers();
+            //spawnPoolWorkers();
             spawnBlockUnlocker();
             spawnPaymentProcessor();
             spawnApi();

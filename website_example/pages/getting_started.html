@@ -6,7 +6,6 @@
             <div class="stats">
                 <div><i class="fa fa-cloud"></i> <span tkey="miningPoolHost">Mining Pool Address</span>: <i class="fas fa-globe-americas"></i>&nbsp;<span id="miningPoolHost"></span></div>
                 <div><i class="fa fa-cubes"></i> <span tkey="cnAlgorithm">Algorithm</span>: <span id="cnAlgorithm"></span></div>
-                <div><i class="fa fa-code-branch"></i> <span>XMR-Node-Proxy: </span><span>Supported</span></div>
             </div>
         </div>
 
@@ -14,7 +13,6 @@
         <div class="card padding-l-10 padding-r-10">
             <div class="stats">
                 <div><i class="fa fa-key"></i> <span tkey="usernameDesc">This is your wallet address</span></div>
-                <div id="paymentId"><i class="fa fa-compass"></i> <span tkey="paymentId">Exchange Payment ID</span>: <span>Depreciated</span></div>
                 <div id="fixedDiff"><i class="fa fa-wrench"></i> <span tkey="fixedDiff">Difficulty locking</span>: <span><u tkey="address">address</u><span id="fixedDiffSeparator">+</span><u tkey="addrDiff">diff</u></span></div>
                 <div><i class="fa fa-compress"></i> <span>Integrated Address: </span><span>Supported</span></div>
                 <div><i class="fa fa-exchange"></i> <span>Subaddress: </span><span>Supported</span></div>
@@ -132,108 +130,30 @@ currentPage = {
 
         updateText('miningPoolHost', getPoolHost());
         updateTextClasses('exampleHost', getPoolHost());
-        updateText('paymentIdSeparator', lastStats.config.paymentIdSeparator);
         updateText('fixedDiffSeparator', lastStats.config.fixedDiffSeparator);
         if (!lastStats.config.fixedDiffEnabled) $('#fixedDiff').hide();
 
         var coin = lastStats.config.coin.toLowerCase() || null;
-        var cnAlgorithm = lastStats.config.cnAlgorithm || "cryptonight";
+        var cnAlgorithm = lastStats.config.cnAlgorithm || "cuckaroo29b";
         var cnVariant = lastStats.config.cnVariant || 0;
 
         algorithm = '';
-        xmrstakAlgo = '';
 
-        if (cnAlgorithm == "freehaven" || cnAlgorithm == "cryptonight_superfast")
-        {
-            algorithm = 'Cryptonight-Superfast (AKA CN-FreeHaven)';
-            xmrstakAlgo = 'cryptonight_superfast';
-        }
-        else if (cnAlgorithm == "cuckaroo29s") {
-            algorithm = 'Cuckaroo29S (Swap)';
-            xmrstakAlgo = '';
+        if (cnAlgorithm == "cuckaroo29s") {
+            algorithm = 'Cuckaroo29S';
         }
         else if (cnAlgorithm == "cuckaroo29b") {
             algorithm = 'Cuckaroo29B';
-            xmrstakAlgo = '';
         }
-        else if (cnAlgorithm == "cryptonight_light") {
-            if (cnVariant === 1) {
-                algorithm = 'Cryptonight Light (Aeon v7)';
-                xmrstakAlgo = 'cryptonight_lite_v7';
-            } else if (cnVariant === 2) {
-                algorithm = 'Cryptonight Light (IPBC)';
-                xmrstakAlgo = 'cryptonight_lite_v7_xor';
-            } else {
-                algorithm = 'Cryptonight Light (Original)';
-                xmrstakAlgo = 'cryptonight_lite';
-            }
+        else if ((cnAlgorithm == "cuckaroo29v")||(cnAlgorithm == "cuckarood29v")) {
+            algorithm = 'Cuckarood29V';
         }
-        else if (cnAlgorithm == "cryptonight_heavy") {
-            algorithm = 'Cryptonight Heavy';
-            xmrstakAlgo = 'cryptonight_heavy';
+        else{
+            algorithm = cnAlgorithm;
         }
-        else {
-            if (cnVariant === 1) {
-                algorithm = 'Cryptonight (Monero v7)';
-                xmrstakAlgo = 'cryptonight_v7';
-            } else if (cnVariant === 3) {
-                algorithm = 'Cryptonight (Stellite v7)';
-                xmrstakAlgo = 'cryptonight_v7_stellite';
-        } else if (cnVariant === 4) {
-                algorithm = 'Cryptonight Fast (Masari)';
-                xmrstakAlgo = 'cryptonight_masari';
-            } else {
-                algorithm = 'Cryptonight (Original)';
-                xmrstakAlgo = 'cryptonight';
-            }
-        }
-
-        /*
-        if (coin == 'aeon') xmrstakAlgo = 'aeon7';
-        if (coin == 'bbscoin') xmrstakAlgo = 'bbscoin';
-        if (coin == 'croat') xmrstakAlgo = 'croat';
-        if (coin == 'edollar') xmrstakAlgo = 'edollar';
-        if (coin == 'electroneum') xmrstakAlgo = 'electroneum';
-        if (coin == 'graft') xmrstakAlgo = 'graft';
-        if (coin == 'haven') xmrstakAlgo = 'haven';
-        if (coin == 'intense') xmrstakAlgo = 'intense';
-        if (coin == 'ipbc') xmrstakAlgo = 'ipbc';
-        if (coin == 'karbo') xmrstakAlgo = 'karbo';
-        if (coin == 'masari') xmrstakAlgo = 'masari';
-        if (coin == 'monero') xmrstakAlgo = 'monero7';
-        if (coin == 'stellite') xmrstakAlgo = 'stellite';
-        if (coin == 'sumokoin') xmrstakAlgo = 'sumokoin';
-        if (coin == 'turtlecoin') xmrstakAlgo = 'turtlecoin';
-        */
 
         updateText('cnAlgorithm', algorithm);
-        updateText('xmrstakAlgo', xmrstakAlgo);
     }
 };
 
-/**
- * Configuration generator
- **/
-
-$('#generateConf').click(function() {
-    // Mining Port
-    var port = $('#gMiningPort').val();
-    updateTextClasses('examplePort', port);
-
-    // Username
-    var address = $('#gAddress').val().replace(/\s+/g, '').trim();
-    var paymentID = $('#gPaymentID').val().replace(/\s+/g, '').trim();
-    var difficulty = parseInt($('#gDifficulty').val().replace(/\s+/g, '').trim());
-    
-    var login = address ? address : 'YOUR_WALLET_ADDRESS';
-    if (paymentID) login = login + lastStats.config.paymentIdSeparator + paymentID;
-    if (difficulty) login = login + lastStats.config.fixedDiffSeparator + difficulty;
-    updateTextClasses('exampleLogin', login);
-
-    // Password
-    var workerName = $('#gWorkerName').val().replace(/\s+/g, '').trim();
-
-    var password = workerName ? workerName : 'x';
-    updateTextClasses('examplePassword', password);    
-});
 </script>

@@ -4140,39 +4140,12 @@ function genwallet(lang)
   address_qr_widget.innerHTML = "";
   mnemonic_widget.innerHTML = mnemonic;
 
-  // only monero has the URI scheme
-  if (prefix_widget.value == "4") {
-    qr=new QRCode(address_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-    qr.makeCode("monero:"+keys.public_addr);
-  }
-  else {
-    qr = null;
-  }
 }
 
-previous_button_text = "";
-prefix = "";
 function genwallet_prefix_worker()
 {
-  attempts = 0;
-  while (true) {
-    attempts++;
-    seed = cnUtil.sc_reduce32(cnUtil.rand_32());
-    keys = cnUtil.create_address_if_prefix(seed,prefix);
-    if (keys != null) {
-      gen_prefix_widget = document.getElementById("gen_prefix_widget");
-      prefix_widget = document.getElementById("prefix_widget");
-      gen_prefix_widget.value = previous_button_text;
-      prefix_widget.disabled = false;
-      generating = false;
-      break;
-    }
-    if (attempts == 10) {
-      if (generating)
-        setTimeout(genwallet_prefix_worker, 0);
-      return;
-    }
-  }
+  seed = cnUtil.sc_reduce32(cnUtil.rand_32());
+  keys = cnUtil.create_address_if_prefix(seed,prefix);
   mnemonic = mn_encode(seed,current_lang);
 
   spend_key_widget = document.getElementById("spend_key_widget");
@@ -4208,53 +4181,6 @@ function is_valid_prefix(prefix)
   return true;
 }
 
-function check_prefix_validity()
-{
-  gen_prefix_widget = document.getElementById("gen_prefix_widget");
-  prefix_widget = document.getElementById("prefix_widget");
-  if (gen_prefix_widget.value == "STOP")
-    return;
-  prefix=prefix_widget.value;
-  if (is_valid_prefix(prefix)) {
-    gen_prefix_widget.value = "Generate wallet with prefix";
-    gen_prefix_widget.disabled = false;
-  }
-  else {
-    gen_prefix_widget.value = "Invalid prefix";
-    gen_prefix_widget.disabled = true;
-  }
-}
-
-generating = false;
-function genwallet_prefix()
-{
-  gen_prefix_widget = document.getElementById("gen_prefix_widget");
-  prefix_widget = document.getElementById("prefix_widget");
-  if (generating) {
-    generating = false;
-    gen_prefix_widget.value = previous_button_text;
-    prefix_widget.disabled = false;
-  }
-  else {
-    prefix_widget = document.getElementById("prefix_widget");
-    prefix = prefix_widget.value;
-    prefix.trim();
-    if (prefix.length < 2) {
-      alert("Bad prefix should be at least two characters");
-      return;
-    }
-    if (!is_valid_prefix(prefix)) {
-      alert("Bad prefix "+prefix+" is not a valid address prefix");
-      return;
-    }
-
-    generating = true;
-    previous_button_text = gen_prefix_widget.value;
-    gen_prefix_widget.value = "STOP";
-    prefix_widget.disabled = true;
-    setTimeout(genwallet_prefix_worker, 0);
-  }
-}
 
 function checkEntropy()
 {
@@ -4324,31 +4250,6 @@ function enableElement(id, enable)
 function enableLanguage(code, enable)
 {
   enableElement("lang_" + code, enable)
-}
-
-function setCoin(index)
-{
-  var enable
-  var language
-  prefix_widget = document.getElementById("prefix_widget");
-  if (index == 0) {
-    cnUtil = cnUtilGen(moneroConfig);
-    prefix_widget.value = "4";
-    enable = true
-    language = "english"
-  }
-  else if (index == 1) {
-    cnUtil = cnUtilGen(aeonConfig);
-    prefix_widget.value = "W";
-    enable = false
-    language = "electrum"
-  }
-  enableLanguage("en", enable)
-  enableLanguage("es", enable)
-  enableLanguage("pt", enable)
-  enableLanguage("jp", enable)
-  enableElement("show_qr_code", enable)
-  genwallet(language);
 }
 
 genwallet();
