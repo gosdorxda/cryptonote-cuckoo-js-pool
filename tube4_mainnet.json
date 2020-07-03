@@ -1,8 +1,8 @@
 {
 	"poolHost": "mining.bittube.app",
 
-	"coin": "tube4_stagenet",
-	"symbol": "TUBEst",
+	"coin": "tube",
+	"symbol": "TUBE",
 	"coinUnits": 1000000000,
 	"coinDecimalPlaces": 4,
 	"coinDifficultyTarget": 15,
@@ -15,7 +15,7 @@
 	"logging": {
 		"files": {
 			"level": "info",
-			"directory": "logs_stagenet",
+			"directory": "logs",
 			"flushInterval": 5
 		},
 		"console": {
@@ -27,14 +27,14 @@
 	"poolServer": {
 		"enabled": true,
 		"clusterForks": 1,
-		"poolAddress": "SbLqkXhXu4GQvznT35WnDdZ4ZJCM6bbCoKvVp5BTpp42Yk2nqfFg57A5gqmPye9hLe94bnbbTw4h1a85Q2LR6rTR27PUg5uW4",
-		"intAddressPrefix": 9210,
-		"subAddressPrefix": 23578,
+		"poolAddress": "Tubed6hQPLtAWx6Dw3WJckd1RBGb8RA5BZZ5MzDqgdEQWB5bHriuEbj9bCSjXvCWJuFNHkdFRyxcx9vvi4s6bqoyAKEdAYGemDx",
+		"intAddressPrefix": 2584224,
+		"subAddressPrefix": 2879136,
 		"blockRefreshInterval": 200,
 		"minerTimeout": 900,
 		"ports": [
 			{
-				"port": 3300,
+				"port": 3400,
 				"difficulty": 1,
 				"desc": ""
 			}
@@ -105,12 +105,12 @@
 		"hashrateWindow": 600,
 		"updateInterval": 5,
 		"bindIp": "0.0.0.0",
-		"port": 8223,
+		"port": 8224,
 		"blocks": 30,
 		"payments": 30,
 		"password": "I88QcuN-bkjq8BNo",
 		"ssl": true,
-		"sslPort": 8123,
+		"sslPort": 8124,
 		"sslCert": "/etc/letsencrypt/live/mining.bittube.app/cert.pem",
 		"sslKey": "/etc/letsencrypt/live/mining.bittube.app/privkey.pem",
 		"sslCA": "/etc/letsencrypt/live/mining.bittube.app/chain.pem",
@@ -118,24 +118,24 @@
 	},
 
 	"blockNotifier": {
-		"port": 14651
+		"port": 14655
 	},
 
 	"daemon": {
 		"host": "127.0.0.1",
-		"port": 25382
+		"port": 25182
 	},
 
 	"wallet": {
 		"host": "127.0.0.1",
-		"port": 3902
+		"port": 3900
 	},
 
 	"redis": {
 		"host": "127.0.0.1",
 		"port": 6380,
 		"auth": null,
-		"db": 11,
+		"db": 12,
 		"cleanupInterval": 15
 	},
 
