@@ -33,12 +33,39 @@
 		"blockRefreshInterval": 200,
 		"minerTimeout": 900,
 		"ports": [
-			{
-				"port": 3400,
-				"difficulty": 1,
-				"desc": ""
-			}
-		],
+        {
+            "port": 3333, // Port for mining apps to connect to
+            "difficulty": 2000, // Initial difficulty miners are set to
+            "desc": "Low end hardware" // Description of port
+        },
+        {
+            "port": 4444,
+            "difficulty": 15000,
+            "desc": "Mid range hardware"
+        },
+        {
+            "port": 5555,
+            "difficulty": 25000,
+            "desc": "High end hardware"
+        },
+        {
+            "port": 7777,
+            "difficulty": 500000,
+            "desc": "Cloud-mining / NiceHash"
+        },
+        {
+            "port": 8888,
+            "difficulty": 25000,
+            "desc": "Hidden port",
+            "hidden": true // Hide this port in the front-end
+        },
+        {
+            "port": 9999,
+            "difficulty": 20000,
+            "desc": "SSL connection",
+            "ssl": true // Enable SSL
+        }
+    ],
 		"varDiff": {
 			"minDiff": 1,
 			"maxDiff": 100000000,
