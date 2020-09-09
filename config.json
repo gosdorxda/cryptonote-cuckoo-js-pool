@@ -62,7 +62,7 @@
     ],
 		"varDiff": {
 			"minDiff": 1,
-			"maxDiff": 100000000,
+			"maxDiff": 1000000000000,
 			"targetTime": 15,
 			"variancePercent": 30,
 			"maxJump": 100
@@ -156,7 +156,7 @@
 		"host": "127.0.0.1",
 		"port": 6379,
 		"auth": null,
-		"db": 0,
+		"db": 1,
 		"cleanupInterval": 15
 	},
 
