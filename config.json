@@ -105,11 +105,11 @@
 		"hashrateWindow": 600,
 		"updateInterval": 5,
 		"bindIp": "0.0.0.0",
-		"port": 8224,
+		"port": 443,
 		"blocks": 30,
 		"payments": 30,
 		"password": "I88QcuN-bkjq8BNo",
-		"ssl": true,
+		"ssl": false,
 		"sslPort": 8124,
 		"trustProxyIP": true
 	},
