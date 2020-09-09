@@ -230,37 +230,37 @@
 	"charts": {
 		"pool": {
 			"hashrate": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 60,
 				"stepInterval": 1800,
 				"maximumPeriod": 86400
 			},
 			"miners": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 60,
 				"stepInterval": 1800,
 				"maximumPeriod": 86400
 			},
 			"workers": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 60,
 				"stepInterval": 1800,
 				"maximumPeriod": 86400
 			},
 			"difficulty": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 1800,
 				"stepInterval": 10800,
 				"maximumPeriod": 604800
 			},
 			"price": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 1800,
 				"stepInterval": 10800,
 				"maximumPeriod": 604800
 			},
 			"profit": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 1800,
 				"stepInterval": 10800,
 				"maximumPeriod": 604800
@@ -268,23 +268,23 @@
 		},
 		"user": {
 			"hashrate": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 180,
 				"stepInterval": 1800,
 				"maximumPeriod": 86400
 			},
 			"worker_hashrate": {
-				"enabled": true,
+				"enabled": false,
 				"updateInterval": 60,
 				"stepInterval": 60,
 				"maximumPeriod": 86400
 			},
 			"payments": {
-				"enabled": true
+				"enabled": false
 			}
 		},
 		"blocks": {
-			"enabled": true,
+			"enabled": false,
 			"days": 30
 		}
 	}
