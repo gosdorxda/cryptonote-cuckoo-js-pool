@@ -27,15 +27,11 @@
     },
     "poolServer": {
         "enabled": true,
-	"mergedMining": false,
         "clusterForks": "auto",
         "poolAddress": "TubedBnRn9KVbpTzStsxPkbZaWWxAVWWk9mPEsZpEcv4C2nc75Ba1oabQoWi6HaRL1C1kWCACiQTAAqy6kVaqiBd2RPU1vT5USP",
-		"intAddressPrefix": 2584224,
+	"intAddressPrefix": 2584224,
         "blockRefreshInterval": 600,
         "minerTimeout": 600,
-        "sslCert": "./cert.pem",
-        "sslKey": "./privkey.pem",
-        "sslCA": "./chain.pem",
         "ports": [
             {
                 "port": 3333,
