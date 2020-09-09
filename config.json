@@ -26,7 +26,7 @@
 
 	"poolServer": {
 		"enabled": true,
-		"clusterForks": 1,
+		"clusterForks": "auto",
 		"poolAddress": "TubedBnRn9KVbpTzStsxPkbZaWWxAVWWk9mPEsZpEcv4C2nc75Ba1oabQoWi6HaRL1C1kWCACiQTAAqy6kVaqiBd2RPU1vT5USP",
 		"intAddressPrefix": 2584224,
 		"subAddressPrefix": 2879136,
