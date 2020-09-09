@@ -27,7 +27,7 @@
 	"poolServer": {
 		"enabled": true,
 		"clusterForks": 1,
-		"poolAddress": "Tubed6hQPLtAWx6Dw3WJckd1RBGb8RA5BZZ5MzDqgdEQWB5bHriuEbj9bCSjXvCWJuFNHkdFRyxcx9vvi4s6bqoyAKEdAYGemDx",
+		"poolAddress": "TubedBnRn9KVbpTzStsxPkbZaWWxAVWWk9mPEsZpEcv4C2nc75Ba1oabQoWi6HaRL1C1kWCACiQTAAqy6kVaqiBd2RPU1vT5USP",
 		"intAddressPrefix": 2584224,
 		"subAddressPrefix": 2879136,
 		"blockRefreshInterval": 200,
@@ -111,9 +111,6 @@
 		"password": "I88QcuN-bkjq8BNo",
 		"ssl": true,
 		"sslPort": 8124,
-		"sslCert": "/etc/letsencrypt/live/mining.bittube.app/cert.pem",
-		"sslKey": "/etc/letsencrypt/live/mining.bittube.app/privkey.pem",
-		"sslCA": "/etc/letsencrypt/live/mining.bittube.app/chain.pem",
 		"trustProxyIP": true
 	},
 
@@ -128,14 +125,14 @@
 
 	"wallet": {
 		"host": "127.0.0.1",
-		"port": 3900
+		"port": 1001
 	},
 
 	"redis": {
 		"host": "127.0.0.1",
-		"port": 6380,
+		"port": 6379,
 		"auth": null,
-		"db": 12,
+		"db": 0,
 		"cleanupInterval": 15
 	},
 
