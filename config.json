@@ -34,9 +34,9 @@
 		"minerTimeout": 900,
 		"ports": [
         {
-            "port": 3333, // Port for mining apps to connect to
-            "difficulty": 2000, // Initial difficulty miners are set to
-            "desc": "Low end hardware" // Description of port
+            "port": 3333,
+            "difficulty": 2000,
+            "desc": "Low end hardware" 
         },
         {
             "port": 4444,
@@ -57,13 +57,7 @@
             "port": 8888,
             "difficulty": 25000,
             "desc": "Hidden port",
-            "hidden": true // Hide this port in the front-end
-        },
-        {
-            "port": 9999,
-            "difficulty": 20000,
-            "desc": "SSL connection",
-            "ssl": true // Enable SSL
+            "hidden": true 
         }
     ],
 		"varDiff": {
