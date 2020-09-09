@@ -1,4 +1,4 @@
-var api = "https://mining.bittube.app:8124";
+var api = "http://163.172.186.193:443";
 
 var coinDecimalPlaces = 2;
 
